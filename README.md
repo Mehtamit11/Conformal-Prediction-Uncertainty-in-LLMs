@@ -23,11 +23,6 @@
 ## 1. Introduction
 The proliferation of open-source Large Language Models (LLMs) from various institutions has highlighted the urgent need for comprehensive evaluation methods. However, current evaluation platforms, such as the widely recognized HuggingFace open LLM leaderboard, neglect a crucial aspect -- **uncertainty**, which is vital for thoroughly assessing LLMs. 
 
-<p align="center">
-  <img src="images/intro_exp.jpg" width="45%" />
-  <p align="center">Two LLMs can achieve the same accuracy score but demonstrate different levels of uncertainty.</p>
-</p>
-
 To bridge this gap, we introduce a new benchmarking approach for LLMs that integrates uncertainty quantification. Our examination involves eight LLMs (LLM series) spanning five representative natural language processing tasks. Additionally, we introduce an uncertainty-aware evaluation metric, UAcc, which takes into account both prediction accuracy and prediction uncertainty. Our findings reveal that: 
 
 * **LLMs with higher accuracy may exhibit lower certainty**;
@@ -39,11 +34,6 @@ By taking uncertainty into account, our new UAcc metric can either amplify or di
 
 ## 2. Uncertainty Quantification
 We propose the utilization of [conformal prediction](https://arxiv.org/abs/2107.07511) for uncertainty quantification in LLMs. Compared to other methods, conformal prediction offers multiple advantages including ease of implementation, high efficiency, and a statistically **rigorous** estimation of uncertainty rather than a heuristic approximation.
-
-<p align="center">
-  <img src="images/diagram.png" width="90%" />
-  <p align="center">The overall process of applying conformal prediction for uncertainty quantification in LLMs.</p>
-</p>
 
 
 ## 3. Evaluation Tasks and Datasets
@@ -105,9 +95,7 @@ We then compare the performance of various LLMs in terms of prediction uncertain
 | Falcon-7B | 3.90 | 3.60 | 3.66 | 3.64 | 3.92 | 3.75 |
 
 In addition, we propose a new evaluation metric, Uncertainty-aware Accuracy (**UAcc**), which takes into account both prediction accuracy and prediction uncertainty.
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?UAcc=\frac{Acc}{SS}\sqrt{|\mathcal{Y}|},~\mathcal{Y}~denotes~the~option~set." />
-</p>
+
 Note that UAcc can take values greater than 1. 
 
 
@@ -256,7 +244,3 @@ Average UAcc: 109.96
   year={2024}
   }
 ```
-
-
-## 7. Contact
-If you have any questions, feel free to raise an issue ro contact us at <fanghua.ye.21@gmail.com>.
